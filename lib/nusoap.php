@@ -4686,7 +4686,7 @@ class wsdl extends nusoap_base {
     		$imported = 0;
     		// Schema imports
     		foreach ($this->schemas as $ns => $list) {
-    			foreach ($list as $xs) {
+    			foreach ($list as $ns1 => $xs) {
 					$wsdlparts = parse_url($this->wsdl);	// this is bogusly simple!
 		            foreach ($xs->imports as $ns2 => $list2) {
 		                for ($ii = 0; $ii < count($list2); $ii++) {
@@ -4697,7 +4697,8 @@ class wsdl extends nusoap_base {
 		                		 * GitHub issue #1
 		                		 */
 		                		//$this->schemas[$ns]->imports[$ns2][$ii]['loaded'] = true;
-		                		$list2[$ii]['loaded'] = true;
+		                		//$list2[$ii]['loaded'] = true;
+		                		$this->schemas[$ns][$ns1]->imports[$ns2][$ii]['loaded'] = true;
 		                		$url = $list2[$ii]['location'];
 								if ($url != '') {
 									$urlparts = parse_url($url);
