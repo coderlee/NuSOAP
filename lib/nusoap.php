@@ -4696,8 +4696,8 @@ class wsdl extends nusoap_base {
 		                		 * because of error "Warning: attempt to modify property of non-object"
 		                		 * GitHub issue #1
 		                		 */
-		                		//$this->schemas[$ns]->imports[$ns2][$ii]['loaded'] = true;
-		                		$list2[$ii]['loaded'] = true;
+		                		$this->schemas[$ns]->imports[$ns2][$ii]['loaded'] = true;
+		                		//$list2[$ii]['loaded'] = true;
 		                		$url = $list2[$ii]['location'];
 								if ($url != '') {
 									$urlparts = parse_url($url);
